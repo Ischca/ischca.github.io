@@ -1,0 +1,28 @@
+<div class="container">
+
+    <div class="row">
+        <h1 class="text-center">GoToキャンペーン 旅行代金計算サイト</h1>
+    </div>
+
+    <hr />
+
+    <nights class="row justify-content-center" view-model.ref="nights"></nights>
+
+    宿泊費<num-selector  num.bind="accommodationFee" suffix.bind="'泊'"></num-selector>
+
+    交通費<num-selector  num.bind="transportFee" suffix.bind="'泊'"></num-selector>
+
+    <div id="result">
+        <ul>
+            <li>
+                宿泊費：${accommodationFee}
+            </li>
+            <li>
+                交通費：${transportFee}
+            </li>
+            <li>
+                ${nights.night}泊${nights.days}日
+            </li>
+        </ul>
+    </div>
+</div>

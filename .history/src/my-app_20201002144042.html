@@ -1,0 +1,27 @@
+<import from="./nights"></import>
+
+<div class="container">
+
+    <div class="row">
+        <h1 class="text-center">GoToキャンペーン 旅行代金計算サイト</h1>
+    </div>
+
+    <hr />
+
+    <nights class="row justify-content-center" view-model.ref="nights"></nights>
+
+    宿泊費<input type="number" value.bind="price"/>
+
+    交通費<input type="number" />
+
+    <div id="result">
+        <ul>
+            <li>
+                宿泊費：${price}
+            </li>
+            <li>
+                ${nights.night}/${nights.days}日
+            </li>
+        </ul>
+    </div>
+</div>
