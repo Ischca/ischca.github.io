@@ -17,9 +17,9 @@ export class MyApp {
       dateFormat: 'Y/m/j',
       minDate: '2020/10/01',
       maxDate: '2021/2/1',
-      onChange: (selectedDates, dateStr, instance) => {
-        let start = selectedDates[0]?.getDate();
-        let end = selectedDates[1]?.getDate();
+      onChange: (selectedDates) => {
+        const start = selectedDates[0]?.getDate();
+        const end = selectedDates[1]?.getDate();
         this.night = end >= start ? end - start : 0;
         this.days = this.night >= 0 ? this.night + 1 : 0;
       }
@@ -27,7 +27,7 @@ export class MyApp {
   }
 
   get total(): number {
-    let x = new BigNumber(this.totalAccommodationFee)
+    const x = new BigNumber(this.totalAccommodationFee)
     if (!x.isNaN()) {
       return x.minus(this.discountAmount)
         .dp(0, BigNumber.ROUND_DOWN)
@@ -37,9 +37,9 @@ export class MyApp {
   }
 
   get discountAmount(): BigNumber {
-    let x = new BigNumber(this.totalAccommodationFee)
+    const x = new BigNumber(this.totalAccommodationFee)
     if (!x.isNaN()) {
-      let x2 = x.times(0.5).gt(this.maxBenefitAmount) ? this.maxBenefitAmount : x.times(0.5);
+      const x2 = x.times(0.5).gt(this.maxBenefitAmount) ? this.maxBenefitAmount : x.times(0.5);
       return x2.times(0.7)
         .dp(0, BigNumber.ROUND_DOWN);
     }
@@ -47,10 +47,10 @@ export class MyApp {
   }
 
   get couponAmount(): BigNumber {
-    let x = new BigNumber(this.totalAccommodationFee)
+    const x = new BigNumber(this.totalAccommodationFee)
     if (!x.isNaN()) {
-      let x2 = x.times(0.5).gt(this.maxBenefitAmount) ? this.maxBenefitAmount : x.times(0.5);
-      let round = x2.times(0.3)
+      const x2 = x.times(0.5).gt(this.maxBenefitAmount) ? this.maxBenefitAmount : x.times(0.5);
+      const round = x2.times(0.3)
         .div(1000)
         .dp(0, BigNumber.ROUND_HALF_UP)
         .times(1000);
@@ -60,7 +60,7 @@ export class MyApp {
   }
 
   get maxBenefitAmount(): BigNumber {
-    let x = this.night === 0 ? 10000 : 20000;
+    const x = this.night === 0 ? 10000 : 20000;
     return new BigNumber(x)
       .times(this.night === 0 ? 1 : this.night)
       .times(this.people);
