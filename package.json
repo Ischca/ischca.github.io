@@ -8,13 +8,15 @@
   },
   "license": "UNLICENSED",
   "dependencies": {
-    "aurelia": "dev",
-    "bignumber.js": "^9.0.1"
+    "aurelia": "^0.8.0-dev.202010050535",
+    "bignumber.js": "^9.0.1",
+    "flatpickr": "^4.6.6"
   },
   "devDependencies": {
-    "@aurelia/testing": "dev",
-    "@aurelia/ts-jest": "dev",
-    "@aurelia/webpack-loader": "dev",
+    "@aurelia/jit-html-browser": "^0.8.0-dev.202010031855",
+    "@aurelia/testing": "^0.8.0-dev.202010050535",
+    "@aurelia/ts-jest": "^0.8.0-dev.202010050535",
+    "@aurelia/webpack-loader": "^0.8.0-dev.202010050535",
     "@types/jest": "^26.0.10",
     "@types/node": "^14.6.0",
     "@typescript-eslint/eslint-plugin": "^3.9.1",
@@ -31,7 +33,7 @@
     "rimraf": "^3.0.2",
     "style-loader": "^1.2.1",
     "ts-loader": "^8.0.2",
-    "typescript": "^3.9.7",
+    "typescript": "^4.1.0-beta",
     "url-loader": "^4.1.0",
     "webpack": "^4.44.1",
     "webpack-bundle-analyzer": "^3.8.0",

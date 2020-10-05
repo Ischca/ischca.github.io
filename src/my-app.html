@@ -12,18 +12,12 @@
 
     <hr />
 
-    <div class="row justify-content-center mb-3">
-        <h2 class="col-sm-auto">プラン1</h2>
-    </div>
-
-    <div class="row">
+    <div class="row mt-3">
         <label for="staticEmail" class="offset-sm-4 col-sm-1 col-form-label font-weight-bold">日数</label>
-        <div class="col-sm-2">
-            <num-selector num.bind="night" suffix.bind="'泊'"></num-selector>
-        </div>
-
-        <div class="col-sm-2">
-            <num-selector num.bind="days" suffix.bind="'日'"></num-selector>
+        <div class="col-sm-3 mb-3">
+            <div class="input-group">
+                <input ref="calendar" class="form-control" placeholder="クリックしてください" />
+            </div>
         </div>
     </div>
 
@@ -37,41 +31,49 @@
     <div class="row">
         <label for="staticEmail" class="offset-sm-4 col-sm-1 col-form-label font-weight-bold">旅費総額</label>
         <div class="col-sm-2">
-            <num-selector num.bind="totalAccommodationFee" max.bind="10000000" suffix.bind="'円'"></num-selector>
+            <num-selector num.bind="totalAccommodationFee" max.bind="10000000" suffix.bind="'円'" step.bind="1000"></num-selector>
         </div>
     </div>
 
-    <!-- <div class="row">
-        <label for="staticEmail" class="offset-sm-4 col-sm-1 col-form-label font-weight-bold">交通費</label>
-        <div class="col-sm-2">
-            <num-selector num.bind="transportFee" max.bind="10000000" suffix.bind="'円'"></num-selector>
-        </div>
-    </div> -->
-
+    <hr />
     <h3 class="text-center mt-3">計算結果</h3>
-    <hr/>
 
-    <div id="result" class="text-center">
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-                支払い総額：${total | localeNumber}
-                割引額：${discountAmount | localeNumber}
-                地域共通クーポン額：${couponAmount | localeNumber}
-
-                一人当たりの料金：${total / people | localeNumber}
-            </li>
-            <li class="list-group-item">
-                ${night}泊${days}日
-            </li>
-            <li class="list-group-item">
-                人数：${people}
-            </li>
-            <li class="list-group-item">
-                宿泊費：${totalAccommodationFee | localeNumber}
-            </li>
-            <!-- <li class="list-group-item">
-                交通費：${transportFee | localeNumber}
-            </li> -->
-        </ul>
+    <div id="result" class="row">
+        <div class="mx-auto col-sm-5">
+            <table class="table table-sm">
+                <tr>
+                    <td class="text-left">支払い総額：</td>
+                    <td class="text-right">${total | localeNumber}円</td>
+                </tr>
+                <tr>
+                    <td class="text-left">還元率：</td>
+                    <td class="text-right">${yield}%</td>
+                </tr>
+                <tr>
+                    <td class="text-left">割引額：</td>
+                    <td class="text-right">${discountAmount | localeNumber}円</td>
+                </tr>
+                <tr>
+                    <td class="text-left">地域共通クーポン額：</td>
+                    <td class="text-right">${couponAmount | localeNumber}円</td>
+                </tr>
+                <tr>
+                    <td class="text-left">一人当たりの料金：</td>
+                    <td class="text-right">${total / people | localeNumber}円</td>
+                </tr>
+                <tr>
+                    <td class="text-left">日数：</td>
+                    <td class="text-right">${night}泊${days}日</td>
+                </tr>
+                <tr>
+                    <td class="text-left">人数：</td>
+                    <td class="text-right">${people}人</td>
+                </tr>
+                <tr>
+                    <td class="text-left">宿泊費：</td>
+                    <td class="text-right">${totalAccommodationFee | localeNumber}円</td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
