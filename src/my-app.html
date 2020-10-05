@@ -1,0 +1,79 @@
+<div class="container">
+
+    <div class="row">
+        <h1 class="text-center">GoToキャンペーン 旅行代金計算サイト</h1>
+    </div>
+
+    <div class="text-center">
+        <small class="text-danger">
+            GoToトラベルキャンペーンの割引適用は、1予約あたり1回となります。
+        </small>
+    </div>
+
+    <hr />
+
+    <div class="row mt-3">
+        <label for="staticEmail" class="offset-sm-4 col-sm-1 col-form-label font-weight-bold">日数</label>
+        <div class="col-sm-3 mb-3">
+            <div class="input-group">
+                <input ref="calendar" class="form-control" placeholder="クリックしてください" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <label for="staticEmail" class="offset-sm-4 col-sm-1 col-form-label font-weight-bold">人数</label>
+        <div class="col-sm-2">
+            <num-selector num.bind="people" max.bind="100" suffix.bind="'人'"></num-selector>
+        </div>
+    </div>
+
+    <div class="row">
+        <label for="staticEmail" class="offset-sm-4 col-sm-1 col-form-label font-weight-bold">旅費総額</label>
+        <div class="col-sm-2">
+            <num-selector num.bind="totalAccommodationFee" max.bind="10000000" suffix.bind="'円'" step.bind="1000"></num-selector>
+        </div>
+    </div>
+
+    <hr />
+    <h3 class="text-center mt-3">計算結果</h3>
+
+    <div id="result" class="row">
+        <div class="mx-auto col-sm-5">
+            <table class="table table-sm">
+                <tr>
+                    <td class="text-left">支払い総額：</td>
+                    <td class="text-right">${total | localeNumber}円</td>
+                </tr>
+                <tr>
+                    <td class="text-left">還元率：</td>
+                    <td class="text-right">${yield}%</td>
+                </tr>
+                <tr>
+                    <td class="text-left">割引額：</td>
+                    <td class="text-right">${discountAmount | localeNumber}円</td>
+                </tr>
+                <tr>
+                    <td class="text-left">地域共通クーポン額：</td>
+                    <td class="text-right">${couponAmount | localeNumber}円</td>
+                </tr>
+                <tr>
+                    <td class="text-left">一人当たりの料金：</td>
+                    <td class="text-right">${total / people | localeNumber}円</td>
+                </tr>
+                <tr>
+                    <td class="text-left">日数：</td>
+                    <td class="text-right">${night}泊${days}日</td>
+                </tr>
+                <tr>
+                    <td class="text-left">人数：</td>
+                    <td class="text-right">${people}人</td>
+                </tr>
+                <tr>
+                    <td class="text-left">宿泊費：</td>
+                    <td class="text-right">${totalAccommodationFee | localeNumber}円</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
