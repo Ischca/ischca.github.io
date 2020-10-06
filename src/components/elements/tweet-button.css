@@ -1,0 +1,9 @@
+#tweet-button-icon {
+    background-image:url('/static/images/Twitter_Social_Icon_Rounded_Square_Color.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    display:inline-block;
+    margin-top:2px;
+    width:46px;
+    height:46px;
+  }

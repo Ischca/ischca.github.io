@@ -36,44 +36,45 @@
     </div>
 
     <hr />
-    <h3 class="text-center mt-3">計算結果</h3>
+    <h3 class="text-center mt-3">${resultTitle}</h3>
 
     <div id="result" class="row">
         <div class="mx-auto col-sm-5">
             <table class="table table-sm">
-                <tr>
+                <tr id="total">
                     <td class="text-left">支払い総額：</td>
-                    <td class="text-right">${total | localeNumber}円</td>
+                    <td class="text-right">${result.total}</td>
                 </tr>
-                <tr>
+                <tr id="yield">
                     <td class="text-left">還元率：</td>
-                    <td class="text-right">${yield}%</td>
+                    <td class="text-right">${result.yield}</td>
                 </tr>
-                <tr>
+                <tr id="discountAmount">
                     <td class="text-left">割引額：</td>
-                    <td class="text-right">${discountAmount | localeNumber}円</td>
+                    <td class="text-right">${result.discountAmount}</td>
                 </tr>
-                <tr>
+                <tr id="couponAmount">
                     <td class="text-left">地域共通クーポン額：</td>
-                    <td class="text-right">${couponAmount | localeNumber}円</td>
+                    <td class="text-right">${result.couponAmount}</td>
                 </tr>
-                <tr>
+                <tr id="perPerson">
                     <td class="text-left">一人当たりの料金：</td>
-                    <td class="text-right">${total / people | localeNumber}円</td>
+                    <td class="text-right">${result.perPerson}</td>
                 </tr>
-                <tr>
+                <tr id="days">
                     <td class="text-left">日数：</td>
-                    <td class="text-right">${night}泊${days}日</td>
+                    <td class="text-right">${result.days}</td>
                 </tr>
-                <tr>
+                <tr id="people">
                     <td class="text-left">人数：</td>
-                    <td class="text-right">${people}人</td>
+                    <td class="text-right">${result.people}</td>
                 </tr>
-                <tr>
-                    <td class="text-left">宿泊費：</td>
-                    <td class="text-right">${totalAccommodationFee | localeNumber}円</td>
+                <tr id="accommodationFee">
+                    <td class="text-left">旅費：</td>
+                    <td class="text-right">${result.accommodationFee}</td>
                 </tr>
             </table>
         </div>
     </div>
+    <footer text.bind="resultText"></footer>
 </div>

@@ -77,4 +77,40 @@ export class MyApp {
     }
     else return 0;
   }
+
+  get resultTitle(): string {
+    const daysText = this.night !== 0 || this.days !== 1 ? `${this.night}泊${this.days}日` : `日帰り`;
+    return `${this.people}人 ` + daysText + ` ${this.localeNumber(this.totalAccommodationFee)}円` + 'の計算結果';
+  }
+
+  get result() {
+    return {
+      total: `${this.localeNumber(this.total)}円`,
+      yield: `${this.yield}%`,
+      discountAmount: `${this.localeNumber(this.discountAmount.toNumber())}円`,
+      couponAmount: `${this.localeNumber(this.couponAmount.toNumber())}円`,
+      perPerson: `${this.localeNumber(this.total / this.people)}円`,
+      days: `${this.night}泊${this.days}日`,
+      people: `${this.people}人`,
+      accommodationFee: `${this.localeNumber(this.totalAccommodationFee)}円`
+    };
+  }
+
+  get resultText() {
+    return `${this.resultTitle}
+      
+支払い総額：	${this.result.total}
+還元率：	${this.result.yield}
+割引額：	${this.result.discountAmount}
+地域共通クーポン額：	${this.result.couponAmount}
+一人当たりの料金：	${this.result.perPerson}
+日数：	${this.result.days}
+人数：	${this.result.people}
+旅費：	${this.result.accommodationFee}
+`;
+  }
+
+  localeNumber(num: number): string {
+    return num.toLocaleString('ja-JP');
+  }
 }
