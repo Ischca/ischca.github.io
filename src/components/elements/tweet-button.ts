@@ -6,7 +6,7 @@ export class TweetButton {
     click() {
         if (!this.text) return;
         const encoded = encodeURI(this.text);
-        const url = `https://twitter.com/intent/tweet?text=${encoded}&url=https://ischca.github.io/gotocalc&hashtags=gotoキャンペーン`;
+        const url = `https://twitter.com/intent/tweet?text=${encoded}&url=https://ischca.github.io/&hashtags=gotoキャンペーン`;
         window.open(url, '_blank', 'noopener');
     }
 }
