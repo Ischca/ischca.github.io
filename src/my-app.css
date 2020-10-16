@@ -1,3 +1,12 @@
 body {
   overflow-y: scroll;
 }
+
+.ad {
+  z-index: 1;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  text-align:center;
+  width: 100%;
+}
